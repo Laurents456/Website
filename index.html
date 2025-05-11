@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 Andika - Web Developer</title>
+    <title> Andika - Web Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #6c63ff;
+            --primary: #2f8f5e; /* Changed to green */
             --dark: #161923;
             --light: #f8f9fa;
             --skill-bg: #1a1f29;
-            --skill-fill: #2f8f5e;
+            --skill-fill: #2f8f5e; /* Changed to green */
             --text-light: #c9c9c9;
             --text-muted: #a3a3a3;
         }
@@ -40,13 +40,13 @@
             background: var(--primary);
             border-radius: 30px;
             padding: 5px 15px;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(47, 143, 94, 0.3); /* Changed to green */
             transition: all 0.3s ease;
         }
 
         .language-switcher:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(47, 143, 94, 0.4); /* Changed to green */
         }
 
         .language-switcher button {
@@ -55,8 +55,8 @@
             color: white;
             font-weight: bold;
             cursor: pointer;
-            padding: 5px 10px;
-            font-size: 0.9rem;
+            padding: 3px 8px;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
         }
 
@@ -82,21 +82,21 @@
             background: var(--primary);
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(47, 143, 94, 0.3); /* Changed to green */
         }
 
         .nav-buttons button:hover {
             transform: scale(1.1);
-            background: #574bdb;
+            background: #247a4d; /* Darker green */
         }
 
         /* Profile Section */
@@ -333,6 +333,7 @@
 
         .contact-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(47, 143, 94, 0.3); /* Changed to green */
         }
 
         .contact-icon {
@@ -424,6 +425,16 @@
             animation: slideInRight 0.8s ease-out forwards;
         }
     </style>
+
+<script>
+const hour = new Date().getHours();
+if (hour >= 18 || hour < 6) {
+    document.body.classList.add('light-mode') ? false : document.body.classList.remove('light-mode');
+} else {
+    document.body.classList.remove('light-mode');
+}
+</script>
+
 </head>
 <body>
     <!-- Language Switcher -->
@@ -434,9 +445,9 @@
 
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
-        <button id="btn-home">↑</button>
-        <button id="btn-skills">•</button>
-        <button id="btn-contact">↓</button>
+        <button id="btn-home"><i class="fas fa-user"></i></button>
+        <button id="btn-skills"><i class="fas fa-chart-bar"></i></button>
+        <button id="btn-contact"><i class="fas fa-phone"></i></button>
     </div>
 
     <!-- Profile Section -->
@@ -656,8 +667,423 @@
             </div>
         </div>
     </section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials hidden">
+    <div class="container">
+        <h2 class="section-title lang-en">Testimonials</h2>
+        <h2 class="section-title lang-id" style="display: none;">Testimoni</h2>
+        <div class="testimonials-slider">
+        <div class="testimonial-item">
+            <p class="lang-en">"Very inspiring!" - A Friend</p>
+            <p class="lang-id" style="display: none;">"Sangat menginspirasi!" - Seorang Teman</p>
+        </div>
+        <div class="testimonial-item">
+            <p class="lang-en">"Creative and skilled." - Collaborator</p>
+            <p class="lang-id" style="display: none;">"Kreatif dan berbakat." - Rekan Kerja</p>
+        </div>
+        <div class="testimonial-item">
+            <p class="lang-en">"Impressive first portfolio!" - Reviewer</p>
+            <p class="lang-id" style="display: none;">"Portofolio pertama yang mengesankan!" - Peninjau</p>
+        </div>
+    </div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="projects hidden">
+    <div class="container">
+        <h2 class="section-title lang-en">My Projects</h2>
+        <h2 class="section-title lang-id" style="display: none;">Projek Saya</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://a.top4top.io/p_3418hd07h1.jpg" alt="Bismillah">
+                <h3>Project 1</h3>
+                <p>A simple HTML & CSS website.</p>
+                
+            </div>
+            <div class="project-card">
+                <img src="https://l.top4top.io/p_3418ewlcf0.jpg" alt="Ah Susah Bet Ngoding">
+                <h3>Project 2</h3>
+                <p>A Node.js WhatsApp bot.</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Contact Section -->
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language switcher
+            const enBtn = document.getElementById('en-btn');
+            const idBtn = document.getElementById('id-btn');
+            const enElements = document.querySelectorAll('.lang-en');
+            const idElements = document.querySelectorAll('.lang-id');
+
+            enBtn.addEventListener('click', function() {
+                enElements.forEach(el => el.style.display = 'block');
+                idElements.forEach(el => el.style.display = 'none');
+                enBtn.classList.add('active');
+                idBtn.classList.remove('active');
+                localStorage.setItem('language', 'en');
+            });
+
+            idBtn.addEventListener('click', function() {
+                idElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                idBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                localStorage.setItem('language', 'id');
+            });
+
+            // Set initial language from localStorage
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            if (savedLanguage === 'id') {
+                idBtn.click();
+            } else {
+                enBtn.click();
+            }
+
+            // Navigation buttons
+            document.getElementById('btn-home').addEventListener('click', () => {
+                document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.getElementById('btn-skills').addEventListener('click', () => {
+                document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.getElementById('btn-contact').addEventListener('click', () => {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Dark/Light mode toggle
+            const themeToggle = document.createElement('button');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggle.id = 'theme-toggle';
+            themeToggle.style.position = 'fixed';
+            themeToggle.style.top = '20px';
+            themeToggle.style.right = '110px';
+            themeToggle.style.background = 'var(--primary)';
+            themeToggle.style.color = 'white';
+            themeToggle.style.border = 'none';
+            themeToggle.style.width = '35px';
+            themeToggle.style.height = '35px';
+            themeToggle.style.borderRadius = '50%';
+            themeToggle.style.fontSize = '1rem';
+            themeToggle.style.cursor = 'pointer';
+            themeToggle.style.transition = 'all 0.3s ease';
+            themeToggle.style.boxShadow = '0 4px 15px rgba(47, 143, 94, 0.3)';
+            themeToggle.style.zIndex = '100';
+            document.body.appendChild(themeToggle);
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                if (document.body.classList.contains('light-mode')) {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // Set initial theme from localStorage
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+
+            // Download CV button
+            const downloadBtn = document.createElement('a');
+            downloadBtn.href = '#';
+            downloadBtn.className = 'download-btn';
+            downloadBtn.innerHTML = '<i class="fas fa-download"></i> CV';
+            downloadBtn.style.position = 'fixed';
+            downloadBtn.style.bottom = '20px';
+            downloadBtn.style.left = '20px';
+            downloadBtn.style.background = 'var(--primary)';
+            downloadBtn.style.color = 'white';
+            downloadBtn.style.border = 'none';
+            downloadBtn.style.padding = '6px 14px';
+            downloadBtn.style.borderRadius = '30px';
+            downloadBtn.style.fontSize = '0.9rem';
+            downloadBtn.style.cursor = 'pointer';
+            downloadBtn.style.transition = 'all 0.3s ease';
+            downloadBtn.style.boxShadow = '0 4px 15px rgba(47, 143, 94, 0.3)';
+            downloadBtn.style.zIndex = '100';
+            downloadBtn.style.textDecoration = 'none';
+            downloadBtn.style.display = 'flex';
+            downloadBtn.style.alignItems = 'center';
+            downloadBtn.style.gap = '8px';
+            document.body.appendChild(downloadBtn);
+
+            downloadBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Replace with actual CV download link
+                alert('Download CV functionality would go here');
+            });
+
+            // Animate skill bars
+            const skillLevels = document.querySelectorAll('.skill-level');
+            
+            // Enhanced scroll animation observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        
+                        // If this is the skills section, animate the skill bars
+                        if (entry.target.id === 'skills') {
+                            skillLevels.forEach(skill => {
+                                skill.style.width = skill.getAttribute('data-level');
+                            });
+                        }
+                        
+                        // Add specific animations based on section
+                        const animElements = entry.target.querySelectorAll('.timeline-item, .contact-item, .skill-item, .profile-content');
+                        animElements.forEach((el, index) => {
+                            // Stagger the animations
+                            setTimeout(() => {
+                                if (index % 2 === 0) {
+                                    el.classList.add('slide-left');
+                                } else {
+                                    el.classList.add('slide-right');
+                                }
+                            }, 150 * index);
+                        });
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Observe all sections with 'hidden' class
+            document.querySelectorAll('.hidden, .profile').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add hover effect to profile image
+            const profileImg = document.querySelector('.profile-img');
+            if (profileImg) {
+                profileImg.addEventListener('mouseenter', () => {
+                    profileImg.style.transform = 'scale(1.05) rotate(2deg)';
+                    profileImg.style.transition = 'all 0.3s ease';
+                });
+                profileImg.addEventListener('mouseleave', () => {
+                    profileImg.style.transform = 'scale(1) rotate(0)';
+                });
+            }
+        });
+
+        // Add light mode styles
+        const style = document.createElement('style');
+        style.textContent = `
+            body.light-mode {
+                background: #f5f5f5;
+                color: #333;
+            }
+
+            body.light-mode .profile-name,
+            body.light-mode .section-title,
+            body.light-mode .timeline-title,
+            body.light-mode .contact-text h3 {
+                color: #222;
+            }
+
+            body.light-mode .profile-title,
+            body.light-mode .profile-description,
+            body.light-mode .timeline-desc,
+            body.light-mode .contact-text p,
+            body.light-mode .skill-name,
+            body.light-mode .skill-percent {
+                color: #555;
+            }
+
+            body.light-mode .skill-bar {
+                background: #e0e0e0;
+            }
+
+            body.light-mode .contact-item {
+                background: white;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+
+            /* Green color elements */
+            body.light-mode .language-switcher,
+            body.light-mode .nav-buttons button,
+            body.light-mode #theme-toggle,
+            body.light-mode .download-btn,
+            body.light-mode .profile-greeting,
+            body.light-mode .social-icons a:hover,
+            body.light-mode .timeline-badge,
+            body.light-mode .contact-icon {
+                background: #2f8f5e;
+                color: white;
+            }
+
+            body.light-mode .language-switcher button.active {
+                background: white;
+                color: #2f8f5e;
+            }
+
+            /* Testimonials */
+            body.light-mode .testimonial-item {
+                background: white;
+                color: #333;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Projects */
+            body.light-mode .project-card {
+                background: white;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            body.light-mode .project-card h3 {
+                color: #222;
+            }
+
+            body.light-mode .project-card p {
+                color: #555;
+            }
+
+            body.light-mode .project-card a {
+                background: #2f8f5e;
+                color: white;
+            }
+`;
+        document.head.appendChild(style);
+    </script>
+
+
+<style>
+.testimonials-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+}
+.testimonial-item {
+    flex: 0 0 auto;
+    min-width: 250px;
+    background: #1a1f29;
+    color: var(--text-light);
+    padding: 20px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 15px rgba(47, 143, 94, 0.3);
+}
+</style>
+
+
+
+<style>
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.project-card {
+    background: #1a1f29;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(47, 143, 94, 0.3);
+}
+.project-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+.project-card h3 {
+    color: white;
+    margin: 10px 0 5px;
+}
+.project-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+.project-card a:hover {
+    background: #247a4d;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+
+    .language-switcher button {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+
+    #theme-toggle {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.8rem !important;
+        right: 90px !important;
+    }
+
+    .nav-buttons button {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .nav-buttons button i {
+        font-size: 0.8rem;
+    }
+
+    .download-btn {
+        font-size: 0.75rem !important;
+        padding: 4px 10px !important;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .profile-title {
+        font-size: 1rem;
+    }
+
+    .profile-description {
+        font-size: 0.9rem;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+</style>
+
+
+
+
+<!-- Contact Section -->
     <section id="contact" class="contact hidden">
         <div class="container">
             <h2 class="section-title lang-en">Contact Me</h2>
@@ -708,81 +1134,5 @@
             </div>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Language switcher
-            const enBtn = document.getElementById('en-btn');
-            const idBtn = document.getElementById('id-btn');
-            const enElements = document.querySelectorAll('.lang-en');
-            const idElements = document.querySelectorAll('.lang-id');
-
-            enBtn.addEventListener('click', function() {
-                enElements.forEach(el => el.style.display = 'block');
-                idElements.forEach(el => el.style.display = 'none');
-                enBtn.classList.add('active');
-                idBtn.classList.remove('active');
-            });
-
-            idBtn.addEventListener('click', function() {
-                idElements.forEach(el => el.style.display = 'block');
-                enElements.forEach(el => el.style.display = 'none');
-                idBtn.classList.add('active');
-                enBtn.classList.remove('active');
-            });
-
-            // Navigation buttons
-            document.getElementById('btn-home').addEventListener('click', () => {
-                document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            document.getElementById('btn-skills').addEventListener('click', () => {
-                document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            document.getElementById('btn-contact').addEventListener('click', () => {
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            // Animate skill bars
-            const skillLevels = document.querySelectorAll('.skill-level');
-            
-            // Scroll animation observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                        
-                        // If this is the skills section, animate the skill bars
-                        if (entry.target.id === 'skills') {
-                            skillLevels.forEach(skill => {
-                                skill.style.width = skill.getAttribute('data-level');
-                            });
-                        }
-                        
-                        // Add specific animations based on section
-                        const animElements = entry.target.querySelectorAll('.timeline-item, .contact-item, .skill-item');
-                        animElements.forEach((el, index) => {
-                            // Stagger the animations
-                            setTimeout(() => {
-                                if (index % 2 === 0) {
-                                    el.classList.add('slide-left');
-                                } else {
-                                    el.classList.add('slide-right');
-                                }
-                            }, 150 * index);
-                        });
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            // Observe all sections with 'hidden' class
-            document.querySelectorAll('.hidden').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>
